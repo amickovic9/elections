@@ -1,0 +1,31 @@
+{
+  "elections": [
+    {
+      "id": 1,
+      "name": "Local Elections 2025",
+      "type": "LOCAL",
+      "candidates": ["Alice Smith", "Bob Johnson", "Charlie Davis"]
+    },
+    {
+      "id": 2,
+      "name": "Parliamentary Elections 2025",
+      "type": "PARLIAMENTARY",
+      "candidates": ["Party A", "Party B", "Party C", "Party D"]
+    },
+    {
+      "id": 3,
+      "name": "Presidential Elections 2025",
+      "type": "PRESIDENTIAL",
+      "candidates": ["John Adams", "Mary Clark"]
+    }
+  ],
+  "votingUnits": 1000,
+  "votersPerUnit": {
+    "min": 150,
+    "max": 500
+  },
+  "controllersPerUnit": {
+    "min": 2,
+    "max": 5
+  }
+}
