@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "rs.raf.pds.faulttolerance.gRPC";
+
+service ReplicatedLogService {
+
+	rpc AppendLog(LogEntry) returns (LogResponse) {}
+	
+	rpc GetLeaderInfo(LeaderRequest) returns (LeaderInfo){}
+	
+}
+
+message LogEntry {
+	uint64 entryAtIndex = 1;
+	bytes logEntryData = 2;
+}
+
+enum LogStatus {
+	LOG_OK = 0;
+	IO_ERROR = 1; 
+	LOG_HASNT_LAST_ENTRY = 2;
+}
+message LogResponse {
+	LogStatus status = 1;
+	uint64 entryAtIndex = 2;
+	optional uint64 lastEntryIndex = 3;
+}
+
+message LeaderRequest {}
+
+message LeaderInfo{
+	bool imLeader = 1;
+	string hostnamePort = 2;
+}

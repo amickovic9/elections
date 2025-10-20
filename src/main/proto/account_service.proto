@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "rs.raf.pds.faulttolerance.gRPC";
+
+service AccountService {
+
+	rpc AddAmount(AccountRequest) returns (AccountResponse) {}
+	
+	rpc WithdrawAmount(AccountRequest) returns (AccountResponse) {}
+	
+	rpc GetAmount(AccountRequest) returns (AccountResponse) {}
+	
+}
+
+enum AccountRequestType {
+	GET = 0;
+	ADD = 1;
+	WITHDRAWAL = 2;
+}
+
+message AccountRequest {
+	int32 request_id = 1;
+	optional float amount = 2;
+	AccountRequestType op_type = 3;
+}
+
+enum RequestStatus {
+  STATUS_OK = 0;
+  UPDATE_REJECTED_NOT_LEADER = 1;
+  WITHDRAWAL_REJECT_NOT_SUFFICIENT_AMOUNT = 2;
+}
+
+message AccountResponse {
+ 	RequestStatus status = 1;
+ 	int32 request_id = 2;
+  	optional float balance = 3;
+	optional string message = 4;
+}
