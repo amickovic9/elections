@@ -1,7 +1,7 @@
 package rs.raf.pds.elections.enums;
 
 public enum ElectionType {
-    PRESIDENTAL,
+    PRESIDENTIAL,
     LOCAL,
-    PARLAMENTARY
+    PARLIAMENTARY
 }

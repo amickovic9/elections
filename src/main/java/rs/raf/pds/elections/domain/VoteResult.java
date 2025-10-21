@@ -1,49 +1,57 @@
 package rs.raf.pds.elections.domain;
 
+import java.io.Serializable;
 import java.util.Map;
+import java.util.Objects;
 
-public class VoteResult {
-    private String controllerId;
-    private int totalVotes;
+public class VoteResult implements Serializable {
+    private int controllorId;
+    private int totalVoters;
     private int invalidVotes;
     private Map<String, Integer> candidateVotes;
 
-    public VoteResult(String controllerId, Map<String, Integer> candidateVotes, int invalidVotes, int totalVotes) {
-        this.controllerId = controllerId;
-        this.candidateVotes = candidateVotes;
+    public VoteResult(int controllorId, int totalVoters, int invalidVotes, Map<String, Integer> candidateVotes) {
+        this.controllorId = controllorId;
+        this.totalVoters = totalVoters;
         this.invalidVotes = invalidVotes;
-        this.totalVotes = totalVotes;
-    }
-
-    public String getControllerId() {
-        return controllerId;
-    }
-
-    public void setControllerId(String controllerId) {
-        this.controllerId = controllerId;
-    }
-
-    public int getTotalVotes() {
-        return totalVotes;
-    }
-
-    public void setTotalVotes(int totalVotes) {
-        this.totalVotes = totalVotes;
-    }
-
-    public int getInvalidVotes() {
-        return invalidVotes;
-    }
-
-    public void setInvalidVotes(int invalidVotes) {
-        this.invalidVotes = invalidVotes;
-    }
-
-    public Map<String, Integer> getCandidateVotes() {
-        return candidateVotes;
-    }
-
-    public void setCandidateVotes(Map<String, Integer> candidateVotes) {
         this.candidateVotes = candidateVotes;
     }
+
+    public int getControllorId() { return controllorId; }
+    public int getTotalVoters() { return totalVoters; }
+    public int getInvalidVotes() { return invalidVotes; }
+    public Map<String, Integer> getCandidateVotes() { return candidateVotes; }
+
+    public int getValidVotes() {
+        return totalVoters - invalidVotes;
+    }
+
+    public boolean isValid() {
+        int sum = candidateVotes.values().stream().mapToInt(Integer::intValue).sum();
+        return sum == getValidVotes();
+    }
+
+    @Override
+    public String toString() {
+        return "VoteResult{" + "controllorId='" + controllorId + '\'' +
+                ", totalVoters=" + totalVoters +
+                ", invalidVotes=" + invalidVotes +
+                ", candidateVotes=" + candidateVotes + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof VoteResult)) return false;
+        VoteResult other = (VoteResult) o;
+        return totalVoters == other.totalVoters &&
+                invalidVotes == other.invalidVotes &&
+                Objects.equals(candidateVotes, other.candidateVotes);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(totalVoters, invalidVotes, candidateVotes);
+    }
+
 }

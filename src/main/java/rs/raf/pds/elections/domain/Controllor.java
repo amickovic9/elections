@@ -1,6 +1,9 @@
 package rs.raf.pds.elections.domain;
 
-public class Controllor {private int id;
+import java.io.Serializable;
+
+public class Controllor implements Serializable {
+    private int id;
     private String name;
 
     public Controllor() { }

@@ -1,6 +1,8 @@
 package rs.raf.pds.elections.domain;
 
-public class Candidate {
+import java.io.Serializable;
+
+public class Candidate implements Serializable {
     private int id;
     private String name;
 
@@ -8,6 +10,10 @@ public class Candidate {
 
     public Candidate(int id, String name) {
         this.id = id;
+        this.name = name;
+    }
+
+    public Candidate(String name) {
         this.name = name;
     }
 

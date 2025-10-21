@@ -1,31 +1,129 @@
-{
-  "elections": [
+[
     {
       "id": 1,
-      "name": "Local Elections 2025",
-      "type": "LOCAL",
-      "candidates": ["Alice Smith", "Bob Johnson", "Charlie Davis"]
+      "name": "Predsednički izbori 2025",
+      "type": "PRESIDENTIAL",
+      "candidates": [
+        { "id": 1, "name": "Marko Marković" },
+        { "id": 2, "name": "Jovan Jovanović" },
+        { "id": 3, "name": "Ana Anić" }
+      ],
+      "votingUnits": [
+        {
+          "id": 1,
+          "name": "Beograd",
+          "controllors": [
+            { "id": 1, "name": "Kontrolor 1" },
+            { "id": 2, "name": "Kontrolor 2" }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Novi Sad",
+          "controllors": [
+            { "id": 3, "name": "Kontrolor 3" },
+            { "id": 4, "name": "Kontrolor 4" }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Niš",
+          "controllors": [
+            { "id": 5, "name": "Kontrolor 5" },
+            { "id": 6, "name": "Kontrolor 6" }
+          ]
+        }
+      ],
+      "results": {
+        "Beograd": [],
+        "Novi Sad": [],
+        "Niš": []
+      }
     },
+
     {
       "id": 2,
-      "name": "Parliamentary Elections 2025",
-      "type": "PARLIAMENTARY",
-      "candidates": ["Party A", "Party B", "Party C", "Party D"]
+      "name": "Lokalni izbori 2025",
+      "type": "LOCAL",
+      "candidates": [
+        { "id": 1, "name": "Petar Petrović" },
+        { "id": 2, "name": "Maja Majić" },
+        { "id": 3, "name": "Ivan Ivanović" }
+      ],
+      "votingUnits": [
+        {
+          "id": 1,
+          "name": "Beograd",
+          "controllors": [
+            { "id": 1, "name": "Kontrolor 1" },
+            { "id": 2, "name": "Kontrolor 2" }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Novi Sad",
+          "controllors": [
+            { "id": 3, "name": "Kontrolor 3" },
+            { "id": 4, "name": "Kontrolor 4" }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Niš",
+          "controllors": [
+            { "id": 5, "name": "Kontrolor 5" },
+            { "id": 6, "name": "Kontrolor 6" }
+          ]
+        }
+      ],
+      "results": {
+        "Beograd": [],
+        "Novi Sad": [],
+        "Niš": []
+      }
     },
+
     {
       "id": 3,
-      "name": "Presidential Elections 2025",
-      "type": "PRESIDENTIAL",
-      "candidates": ["John Adams", "Mary Clark"]
+      "name": "Parlamentarni izbori 2025",
+      "type": "PARLIAMENTARY",
+      "candidates": [
+        { "id": 1, "name": "Stranka A" },
+        { "id": 2, "name": "Stranka B" },
+        { "id": 3, "name": "Stranka C" },
+        { "id": 4, "name": "Stranka D" }
+      ],
+      "votingUnits": [
+        {
+          "id": 1,
+          "name": "Beograd",
+          "controllors": [
+            { "id": 1, "name": "Kontrolor 1" },
+            { "id": 2, "name": "Kontrolor 2" }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Novi Sad",
+          "controllors": [
+            { "id": 3, "name": "Kontrolor 3" },
+            { "id": 4, "name": "Kontrolor 4" }
+          ]
+        },
+        {
+          "id": 3,
+          "name": "Niš",
+          "controllors": [
+            { "id": 5, "name": "Kontrolor 5" },
+            { "id": 6, "name": "Kontrolor 6" }
+          ]
+        }
+      ],
+      "results": {
+        "Beograd": [],
+        "Novi Sad": [],
+        "Niš": []
+      }
     }
-  ],
-  "votingUnits": 1000,
-  "votersPerUnit": {
-    "min": 150,
-    "max": 500
-  },
-  "controllersPerUnit": {
-    "min": 2,
-    "max": 5
-  }
+  ]
 }

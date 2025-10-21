@@ -2,18 +2,21 @@ package rs.raf.pds.elections.domain;
 
 import rs.raf.pds.elections.enums.ElectionType;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Election {
+public class Election implements Serializable {
     private int id;
     private String name;
     private ElectionType type;
     private List<Candidate> candidates = new ArrayList<>();
     private List<VotingUnit> votingUnits = new ArrayList<>();
     private Map<String, List<VoteResult>> results = new HashMap<>();
+
+    public Election() { }
 
     public Election(String name, int id, List<Candidate> candidates, ElectionType type, List<VotingUnit> votingUnits) {
         this.name = name;
